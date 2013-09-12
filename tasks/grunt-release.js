@@ -52,12 +52,12 @@ module.exports = function(grunt){
     }
 
     function add(config){
-      run('git add ' + config.file);
+      run('git add -u');
     }
 
     function commit(config){
       var message = grunt.template.process(commitMessage, templateOptions);
-      run('git commit '+ config.file +' -m "'+ message +'"', config.file + ' committed');
+      run('git commit -m "'+ message +'"', config.file + ' committed');
     }
 
     function tag(config){
@@ -78,7 +78,7 @@ module.exports = function(grunt){
       var cmd = 'npm publish';
       var msg = 'published '+ config.newVersion +' to npm';
       var npmtag = getNpmTag();
-      if (npmtag){ 
+      if (npmtag){
         cmd += ' --tag ' + npmtag;
         msg += ' with a tag of "' + npmtag + '"';
       }
