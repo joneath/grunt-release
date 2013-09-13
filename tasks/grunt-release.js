@@ -52,6 +52,7 @@ module.exports = function(grunt){
     }
 
     function add(config){
+      run('git add .');
       run('git add . -u');
     }
 
