@@ -52,12 +52,12 @@ module.exports = function(grunt){
     }
 
     function add(config){
-      run('git add -u');
+      run('git add . -u');
     }
 
     function commit(config){
       var message = grunt.template.process(commitMessage, templateOptions);
-      run('git commit -m "'+ message +'"', config.file + ' committed');
+      run('git commit -am "'+ message +'"', config.file + ' committed');
     }
 
     function tag(config){
